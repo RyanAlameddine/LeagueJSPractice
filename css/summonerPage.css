@@ -2,7 +2,34 @@ body {
     background-color: lightblue;
 }
 
-h1 {
-    color: navy;
-    margin-left: 20px;
+.summonerHeader {
+    position: relative;
+}
+
+.summonerSplash{
+    width: 100%;
+    height: auto;    
+}
+
+.summonerIcon{
+    position: absolute;
+    top: 10%;
+    left: 2.1%;
+    width: 10%;
+    height: auto;
+}
+
+.summonerMastery{
+    position: absolute;
+    width: 5%;
+    height: auto;
+    top: -1.8%;
+    right: 1%;
+    /*margin-right: -50%;*/
+    /*transform: translate(-50%, -50%)*/
+}
+
+.summonerName{
+    position:absolute;
+    
 }

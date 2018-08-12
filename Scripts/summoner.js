@@ -32,7 +32,7 @@ function loadPage(name){
                 let champId = bestChamp.championId;
                 //set champion mastery flag
                 let masteryLevel = bestChamp.championLevel;
-                document.getElementById("championMastery").setAttribute("src", `https://github.com/RiotAPI/Riot-Games-API-Developer-Assets/raw/master/champion-mastery-icons/mastery-${masteryLevel}.png`);
+                document.getElementById("championMastery").setAttribute("src", `/Images/Mastery/mastery${masteryLevel}.png`);
                 //get DDragon champion json
                 getDragonRequest(`/cdn/${version}/data/en_US/champion.json`, (championJson) => {
                     //get champion name
