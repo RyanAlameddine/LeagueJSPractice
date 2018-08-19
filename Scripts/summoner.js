@@ -19,7 +19,7 @@ function loadPage(name){
     //load summoner info
     let summoner = new Summoner(name, () => {
         //set summoner name
-        document.getElementById("summonerName").textContent = name;
+        document.getElementById("summonerName").textContent = name.toUpperCase();
         //get version
         getDragonRequest("/api/versions.json", (versions) => {
             let version = versions[0];
@@ -30,9 +30,7 @@ function loadPage(name){
                 //get champion with highest mastery
                 let bestChamp = champMasteries[0];
                 let champId = bestChamp.championId;
-                //set champion mastery flag
                 let masteryLevel = bestChamp.championLevel;
-                document.getElementById("championMastery").setAttribute("src", `/Images/Mastery/mastery${masteryLevel}.png`);
                 //get DDragon champion json
                 getDragonRequest(`/cdn/${version}/data/en_US/champion.json`, (championJson) => {
                     //get champion name
@@ -48,8 +46,9 @@ function loadPage(name){
                     getDragonRequest(`/cdn/${version}/data/en_US/champion/${champName}.json`, (champData) => {
                         //get random skin of champ
                         let skinCount = champData.data[champName].skins.length;
-                        document.getElementById("championSplash").setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champName}_${champData.data[champName].skins[Math.floor(Math.random() * skinCount)].num}.jpg`);
                         
+                        document.getElementById("championSplashParallax").setAttribute("style", `background-image: url('/Images/Mastery/mastery${masteryLevel}.png'), url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champName}_${champData.data[champName].skins[Math.floor(Math.random() * skinCount)].num}.jpg');`);
+
                     });
                 });
             });
