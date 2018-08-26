@@ -1,0 +1,297 @@
+{
+    "gameId": 2853699880,
+    "gameStartTime": 1535310863419,
+    "platformId": "NA1",
+    "gameMode": "CLASSIC",
+    "mapId": 11,
+    "gameType": "MATCHED_GAME",
+    "gameQueueConfigId": 420,
+    "observers": {
+        "encryptionKey": "J3NdMlsVFpmbccLfo127Q7P+kt+4y80k"
+    },
+    "participants": [
+        {
+            "profileIconId": 3022,
+            "championId": 16,
+            "summonerName": "Chiminnie",
+            "gameCustomizationObjects": [],
+            "bot": false,
+            "perks": {
+                "perkStyle": 8200,
+                "perkIds": [
+                    8214,
+                    8226,
+                    8234,
+                    8237,
+                    8463,
+                    8453
+                ],
+                "perkSubStyle": 8400
+            },
+            "spell2Id": 3,
+            "teamId": 100,
+            "spell1Id": 4,
+            "summonerId": 86599153
+        },
+        {
+            "profileIconId": 554,
+            "championId": 21,
+            "summonerName": "Mayfly",
+            "gameCustomizationObjects": [],
+            "bot": false,
+            "perks": {
+                "perkStyle": 8200,
+                "perkIds": [
+                    8229,
+                    8226,
+                    8234,
+                    8237,
+                    9111,
+                    8014
+                ],
+                "perkSubStyle": 8000
+            },
+            "spell2Id": 4,
+            "teamId": 100,
+            "spell1Id": 7,
+            "summonerId": 30060524
+        },
+        {
+            "profileIconId": 985,
+            "championId": 48,
+            "summonerName": "NinjaTigerDB1233",
+            "gameCustomizationObjects": [],
+            "bot": false,
+            "perks": {
+                "perkStyle": 8000,
+                "perkIds": [
+                    8005,
+                    9111,
+                    9104,
+                    8014,
+                    8139,
+                    8135
+                ],
+                "perkSubStyle": 8100
+            },
+            "spell2Id": 4,
+            "teamId": 100,
+            "spell1Id": 11,
+            "summonerId": 87782407
+        },
+        {
+            "profileIconId": 1212,
+            "championId": 24,
+            "summonerName": "Ensphereov",
+            "gameCustomizationObjects": [],
+            "bot": false,
+            "perks": {
+                "perkStyle": 8000,
+                "perkIds": [
+                    8010,
+                    9111,
+                    9104,
+                    8014,
+                    8473,
+                    8472
+                ],
+                "perkSubStyle": 8400
+            },
+            "spell2Id": 14,
+            "teamId": 100,
+            "spell1Id": 4,
+            "summonerId": 63535994
+        },
+        {
+            "profileIconId": 666,
+            "championId": 41,
+            "summonerName": "NotKlutz",
+            "gameCustomizationObjects": [],
+            "bot": false,
+            "perks": {
+                "perkStyle": 8400,
+                "perkIds": [
+                    8437,
+                    8473,
+                    8472,
+                    8453,
+                    8138,
+                    8106
+                ],
+                "perkSubStyle": 8100
+            },
+            "spell2Id": 4,
+            "teamId": 100,
+            "spell1Id": 12,
+            "summonerId": 84000448
+        },
+        {
+            "profileIconId": 1637,
+            "championId": 33,
+            "summonerName": "tempnameA599",
+            "gameCustomizationObjects": [],
+            "bot": false,
+            "perks": {
+                "perkStyle": 8400,
+                "perkIds": [
+                    8439,
+                    8473,
+                    8429,
+                    8242,
+                    9111,
+                    9104
+                ],
+                "perkSubStyle": 8000
+            },
+            "spell2Id": 11,
+            "teamId": 200,
+            "spell1Id": 4,
+            "summonerId": 29208639
+        },
+        {
+            "profileIconId": 21,
+            "championId": 74,
+            "summonerName": "TsubakiMinashiro",
+            "gameCustomizationObjects": [],
+            "bot": false,
+            "perks": {
+                "perkStyle": 8100,
+                "perkIds": [
+                    8112,
+                    8139,
+                    8138,
+                    8106,
+                    8226,
+                    8237
+                ],
+                "perkSubStyle": 8200
+            },
+            "spell2Id": 12,
+            "teamId": 200,
+            "spell1Id": 14,
+            "summonerId": 72529528
+        },
+        {
+            "profileIconId": 3556,
+            "championId": 143,
+            "summonerName": "Holoman",
+            "gameCustomizationObjects": [],
+            "bot": false,
+            "perks": {
+                "perkStyle": 8100,
+                "perkIds": [
+                    8112,
+                    8126,
+                    8136,
+                    8105,
+                    9111,
+                    8014
+                ],
+                "perkSubStyle": 8000
+            },
+            "spell2Id": 4,
+            "teamId": 200,
+            "spell1Id": 14,
+            "summonerId": 21416375
+        },
+        {
+            "profileIconId": 3553,
+            "championId": 18,
+            "summonerName": "Janitor Jenkins",
+            "gameCustomizationObjects": [],
+            "bot": false,
+            "perks": {
+                "perkStyle": 8000,
+                "perkIds": [
+                    8005,
+                    9111,
+                    9104,
+                    8299,
+                    8135,
+                    8126
+                ],
+                "perkSubStyle": 8100
+            },
+            "spell2Id": 7,
+            "teamId": 200,
+            "spell1Id": 4,
+            "summonerId": 71221663
+        },
+        {
+            "profileIconId": 3024,
+            "championId": 115,
+            "summonerName": "ShowMeSomeLove",
+            "gameCustomizationObjects": [],
+            "bot": false,
+            "perks": {
+                "perkStyle": 8200,
+                "perkIds": [
+                    8229,
+                    8226,
+                    8233,
+                    8237,
+                    8304,
+                    8352
+                ],
+                "perkSubStyle": 8300
+            },
+            "spell2Id": 14,
+            "teamId": 200,
+            "spell1Id": 4,
+            "summonerId": 83032706
+        }
+    ],
+    "gameLength": 496,
+    "bannedChampions": [
+        {
+            "teamId": 100,
+            "championId": 61,
+            "pickTurn": 1
+        },
+        {
+            "teamId": 100,
+            "championId": 122,
+            "pickTurn": 2
+        },
+        {
+            "teamId": 100,
+            "championId": 53,
+            "pickTurn": 3
+        },
+        {
+            "teamId": 100,
+            "championId": 119,
+            "pickTurn": 4
+        },
+        {
+            "teamId": 100,
+            "championId": 164,
+            "pickTurn": 5
+        },
+        {
+            "teamId": 200,
+            "championId": 267,
+            "pickTurn": 6
+        },
+        {
+            "teamId": 200,
+            "championId": 238,
+            "pickTurn": 7
+        },
+        {
+            "teamId": 200,
+            "championId": 222,
+            "pickTurn": 8
+        },
+        {
+            "teamId": 200,
+            "championId": 122,
+            "pickTurn": 9
+        },
+        {
+            "teamId": 200,
+            "championId": 157,
+            "pickTurn": 10
+        }
+    ]
+}

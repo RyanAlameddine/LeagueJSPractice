@@ -1,7 +1,7 @@
 function getRequest(link, callback)
 {
     let request = new XMLHttpRequest();
-    request.open("GET", "https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com" + link + "?api_key=RGAPI-39d6bcf2-3bd8-430e-ae33-67477826718c");
+    request.open("GET", "https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com" + link + "?api_key=RGAPI-fa6d3ec0-efae-456b-9f99-fb7cfecb67a6");
     request.setRequestHeader("Content-Type", "application/json");
     request.onreadystatechange = () =>{
         if(request.readyState == 4 && request.status >= 200 && request.status < 300){

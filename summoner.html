@@ -1,15 +1,17 @@
 <html>
     <head>
+        <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
         <script src="/Scripts/ajax.js"></script>
         <script src="/Scripts/main.js"></script>   
         <script src="/Scripts/summoner.js"></script> 
-        <script type="text/javascript">
-            window.onload = loadPage(getParamFromUrl('Name'));
-        </script>
         <link rel="stylesheet" type="text/css" href="/css/summonerPage.css">
         <title>LoL stat checker</title>
     </head>
-    <body>        
+    <body>     
+        <!--   
         <div class="parallax" id="championSplashParallax">
             <span id="summonerName" class="caption"></span>
         </div>
@@ -18,5 +20,25 @@
             <img id="summonerIcon" class="summonerIcon" alt="Summoner Icon">
         </div>
         <div class="parallax"></div>
+    -->
+        <div id="scroll-animate">
+            <div id="scroll-animate-main">
+              <div class="wrapper-parallax">
+                <header id="championSplashParallax">
+                  <h1 id="summonerName" class="caption">Header</h1>
+                </header>
+          
+                <section class="content">
+                  <h1>Content</h1>
+                </section>
+          
+                <footer>
+                    <iframe id="gameStat"></iframe>
+                </footer>
+              </div>
+            </div>
+            <img id="summonerIcon" class="summonerIcon" alt="Summoner Icon">
+          </div>
+          <br> <br>
     </body>
 </html>
