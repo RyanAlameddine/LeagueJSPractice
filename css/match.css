@@ -1,0 +1,68 @@
+body {
+    background-color: rgb(11, 13, 27);
+    margin: 0;
+}
+
+.bg
+{
+    width: 100%;
+    height: auto;
+}
+
+.championDiv
+{
+    width: 100%;    
+    position: fixed;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-33%);
+    height: 50%;
+}
+
+.championDivBottom
+{
+    width: 100%;    
+    position: fixed;
+    top: 33vw;
+    left: 50%;
+    transform: translateX(-25%);
+    height: 50%;
+}
+
+.champion
+{  
+    height: auto;
+    width: 12vw;
+}
+
+.vs {
+    font-family:  Arial, sans-serif;
+    font-size: 120;
+    font-weight: 800;
+    position: fixed;
+    top: 42%;
+
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    color: hsl(43,54%,50%);
+    letter-spacing: -3px;
+    text-shadow:     -1px 1px 0 hsl(43,54%,50%),
+	                 -2px 2px 0 hsl(26,52%,45%),
+	                 -3px 3px 0 hsl(26,50%,40%),
+	                 0px 4px 0 hsl(26,45%,35%),
+	                 1px 5px 0 hsl(26,40%,30%),
+	                 2px 6px 0 hsl(26,35%,25%),
+	                 -1px 7px 0px hsl(26,30%,20%),
+	                 -1px 8px 1px hsl(26,20%,15%),
+	
+	                 0 0 5px rgba(0,0,0,.05),
+	                0 1px 3px rgba(0,0,0,.2),
+	                0 3px 5px rgba(0,0,0,.2),
+	               0 5px 10px rgba(0,0,0,.2),
+	              0 10px 10px rgba(0,0,0,.2),
+	              0 20px 20px rgba(0,0,0,.3);
+}
