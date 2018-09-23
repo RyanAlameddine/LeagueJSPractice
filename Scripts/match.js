@@ -9,15 +9,19 @@ class Match{
 
 window.onload = function(){
     id = getParamFromUrl('id');
+    //get version
     getDragonRequest("/api/versions.json", (versions) => {
         let version = versions[0];
+        //get champion List
         getDragonRequest(`/cdn/${version}/data/en_US/champion.json`, (championJson) => {
+            //get Active Match
             getRequest("/lol/spectator/v3/active-games/by-summoner/" + id, (response) => {
                 match = new Match(response);
                 team100 = 0;
                 team200 = 0;
+                //champSplash
                 for(participant of response.participants){
-                    champName = getChampName(participant.championId, championJson);
+                    champName = getNameFromId(participant.championId, championJson);
                     if(participant.teamId === 100){
                         this.document.getElementById(`champ100-${team100}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champName}_0.jpg`);
                         team100++;
@@ -26,17 +30,107 @@ window.onload = function(){
                         team200++;
                     }
                 }
+                //perks
+                getDragonRequest(`/cdn/${version}/data/en_US/runesReforged.json`, (runesReforged) => {
+                    team100 = 0;
+                    team200 = 0;
+                    for(participant of response.participants){
+                        runeIcon = getRuneFromId(participant.perks.perkStyle, participant.perks.perkIds[0], runesReforged);
+                        let subRuneCat;
+                        //getSubRune
+                        for(let runeCat of runesReforged){
+                            if(runeCat.id == participant.perks.perkSubStyle){
+                                subRuneCat = runeCat.icon;
+                            }
+                        }
+                        if(participant.teamId === 100){
+                            this.document.getElementById(`rune2100-${team100}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/img/${runeIcon}`);
+                            this.document.getElementById(`rune1100-${team100}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/img/${subRuneCat}`);
+                            team100++;
+                        }else{
+                            this.document.getElementById(`rune2200-${team200}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/img/${runeIcon}`);
+                            this.document.getElementById(`rune1200-${team200}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/img/${subRuneCat}`);
+                            team200++;
+                        }
+                    }
+                });
+                //spells
+                getDragonRequest(`/cdn/${version}/data/en_US/summoner.json`, (summonerSpells) => {
+                    spellteam100 = 0;
+                    spellteam200 = 0;
+                    for(participant of response.participants){
+                        let spell1Name = getNameFromId(participant.spell1Id, summonerSpells);
+                        let spell2Name = getNameFromId(participant.spell2Id, summonerSpells);
+                        if(spell2Name == "SummonerFlash"){
+                            spell2Name = spell1Name;
+                            spell1Name = "SummonerFlash";
+                        }
+                        if(participant.teamId === 100){
+                            this.document.getElementById(`spell1100-${spellteam100}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${spell1Name}.png`);
+                            this.document.getElementById(`spell2100-${spellteam100}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${spell2Name}.png`);
+                            spellteam100++;
+                        }else{
+                            this.document.getElementById(`spell1200-${spellteam200}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${spell1Name}.png`);
+                            this.document.getElementById(`spell2200-${spellteam200}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${spell2Name}.png`);
+                            spellteam200++;
+                        }
+                    }
+                });
+                summonerteam100 = 0;
+                summonerteam200 = 0;
+                //Summoners
+                for(participant of response.participants){
+                    let localParticipant = participant;
+                    getRequest(`/lol/summoner/v3/summoners/by-name/${localParticipant.summonerName}`, (accountData) =>{
+                        let level = getLevel(accountData.summonerLevel);
+                        if(localParticipant.teamId === 100){
+                            this.document.getElementById(`summoner100-${summonerteam100}`).setAttribute("src", `/Images/Icon/${level}.png`);
+                            this.document.getElementById(`level100-${summonerteam100}`).innerText = accountData.summonerLevel;
+                            this.document.getElementById(`summonerIcon100-${summonerteam100}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${localParticipant.profileIconId}.png`);
+                            summonerteam100++;
+                        }else{
+                            this.document.getElementById(`summoner200-${summonerteam200}`).setAttribute("src", `/Images/Icon/${level}.png`);
+                            this.document.getElementById(`level200-${summonerteam200}`).innerText = localParticipant.summonerLevel;
+                            this.document.getElementById(`summonerIcon200-${summonerteam200}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${localParticipant.profileIconId}.png`);
+                            summonerteam200++;
+                        }
+                    });
+                    
+                }
             });
         });
     });
           
 }
 
-function getChampName(id, championJson){
-    let data = championJson.data;
+function getNameFromId(id, specifiedJson){
+    let data = specifiedJson.data;
     for (let champObj in data) {
         if(data[champObj].key == id){
             return champObj;
         }
     }
 }
+
+function getRuneFromId(catId, id, runesReforged){
+    for(let runeCat of runesReforged){
+        if(runeCat.id == catId){
+            for(let rune of runeCat.slots[0].runes){
+                if(rune.id == id){
+                    return rune.icon;
+                }
+            }
+        }
+    }
+}
+
+function getLevel(level){
+    let levels = [1, 30, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 325, 350, 375, 400, 425, 450, 475, 500];
+    for(i = 0; i < levels.length; i++){
+        if(level < levels[i]){
+            return levels[i - 1];
+        }
+    }
+    return 500;
+}
+

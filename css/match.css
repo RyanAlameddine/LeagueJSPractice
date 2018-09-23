@@ -102,12 +102,12 @@ body {
 
 .rune1
 {  
-    height: 1.1vw;
-    padding-left: 5.45vw;
-    padding-right: 5.45vw;
+    height: .8vw;
+    padding-left: 5.6vw;
+    padding-right: 5.6vw;
     width: auto;
     position: relative;
-    top:19.65vw;
+    top:19.8vw;
   	clip-path: circle(.58vw at center);
 }
 
@@ -120,6 +120,39 @@ body {
     position: relative;
     top:18.6vw;
   	clip-path: circle(.8vw at center);
+}
+
+.summoner
+{  
+    height: 7vw;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    width: auto;
+    position: relative;
+    top:16vw;
+}
+
+.summonerText
+{  
+    white-space: pre;
+    padding-left: 5.683vw;
+    padding-right: 5.675vw;
+    font-family: Bahnschrift;
+    font-size: .5vw;
+    position: relative;
+    top:21.1vw;
+    color: white;
+}
+
+.summonerIcon
+{  
+    height: 5vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    width: auto;
+    position: relative;
+    top:17vw;
+    clip-path: circle(2vw at center)
 }
 
 .redDiv
