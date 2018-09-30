@@ -60,14 +60,14 @@ body {
 {  
     height: auto;
     width: 12vw;
-    filter: hue-rotate(-10deg);
+    filter: hue-rotate(-5deg) saturate(1.5);
 }
 
 .championGradientRed
 {  
     height: auto;
     width: 12vw;
-    filter: hue-rotate(100deg);
+    filter: hue-rotate(115deg) saturate(1.5);
 }
 
 .sumBorder
@@ -144,6 +144,38 @@ body {
     color: white;
 }
 
+.champNameTextBlue
+{  
+    font-family: Bahnschrift;
+    text-shadow: 0px 0px 2px rgba(10, 20, 129, 1),
+                    0px 0px 2px rgba(10, 20, 129, 1),
+                    0px 0px 4px rgba(10, 20, 129, 1),
+                    0px 0px 5px rgba(10, 20, 129, 1);
+    font-size: .7vw;
+    color: rgb(29, 144, 211);
+}
+
+.champNameTextRed
+{  
+    font-family: Bahnschrift;
+    text-shadow: 0px 0px 2px rgb(71, 12, 7),
+                    0px 0px 2px rgb(71, 12, 7),
+                    0px 0px 4px rgb(71, 12, 7),
+                    0px 0px 5px rgb(71, 12, 7);
+    font-size: .7vw;
+    color: rgb(202, 20, 66);
+}
+
+.summonerNameText
+{  
+    font-family: Bahnschrift;
+    text-shadow: 0px 0px 2px rgb(65, 65, 65),
+                    0px 0px 2px rgb(56, 56, 56),
+                    0px 0px 4px rgb(26, 26, 26)
+                    0px 0px 5px rgb(0, 0, 0);
+    font-size: .8vw;
+    color: rgb(219, 224, 226);
+}
 .summonerIcon
 {  
     height: 5vw;
@@ -170,6 +202,22 @@ body {
 {  
     height: auto;
     width: 12vw;
+}
+
+.champNameTable {
+    top: 14vw; 
+    position: relative; 
+    width: 61vw; 
+    table-layout: fixed; 
+    text-align: center;
+}
+
+.summonerNameTable {
+    top: 15vw; 
+    position: relative; 
+    width: 61vw; 
+    table-layout: fixed; 
+    text-align: center;
 }
 
 .vs {

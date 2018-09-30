@@ -24,9 +24,11 @@ window.onload = function(){
                     champName = getNameFromId(participant.championId, championJson);
                     if(participant.teamId === 100){
                         this.document.getElementById(`champ100-${team100}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champName}_0.jpg`);
+                        this.document.getElementById(`champName100-${team100}`).innerText = championJson.data[champName].name;
                         team100++;
                     }else{
                         this.document.getElementById(`champ200-${team200}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champName}_0.jpg`);
+                        this.document.getElementById(`champName200-${team200}`).innerText = championJson.data[champName].name;
                         team200++;
                     }
                 }
@@ -85,17 +87,18 @@ window.onload = function(){
                         let level = getLevel(accountData.summonerLevel);
                         if(localParticipant.teamId === 100){
                             this.document.getElementById(`summoner100-${summonerteam100}`).setAttribute("src", `/Images/Icon/${level}.png`);
-                            this.document.getElementById(`level100-${summonerteam100}`).innerText = accountData.summonerLevel;
+                            this.document.getElementById(`level100-${summonerteam100}`).innerText = padLeft(accountData.summonerLevel, 3, ' ');
+                            this.document.getElementById(`summonerName100-${summonerteam100}`).innerText = localParticipant.summonerName;
                             this.document.getElementById(`summonerIcon100-${summonerteam100}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${localParticipant.profileIconId}.png`);
                             summonerteam100++;
                         }else{
                             this.document.getElementById(`summoner200-${summonerteam200}`).setAttribute("src", `/Images/Icon/${level}.png`);
-                            this.document.getElementById(`level200-${summonerteam200}`).innerText = localParticipant.summonerLevel;
+                            this.document.getElementById(`level200-${summonerteam200}`).innerText = padLeft(accountData.summonerLevel, 3, ' ');
+                            this.document.getElementById(`summonerName200-${summonerteam200}`).innerText = localParticipant.summonerName;
                             this.document.getElementById(`summonerIcon200-${summonerteam200}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${localParticipant.profileIconId}.png`);
                             summonerteam200++;
                         }
                     });
-                    
                 }
             });
         });
@@ -132,5 +135,12 @@ function getLevel(level){
         }
     }
     return 500;
+}
+
+function padLeft(string, count, char){
+    while(string.toString().length < count){
+        string = char + string;
+    }
+    return string;
 }
 

@@ -25,7 +25,7 @@ function loadPage(name){
         getDragonRequest("/api/versions.json", (versions) => {
             let version = versions[0];
             //set summoner icon
-            document.getElementById("summonerIcon").setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${summoner.profileIconId}.png`);
+            //document.getElementById("summonerIcon").setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${summoner.profileIconId}.png`);
             //get champion masteries
             getRequest(`/lol/champion-mastery/v3/champion-masteries/by-summoner/${summoner.id}`, (champMasteries) =>{
                 //get champion with highest mastery
