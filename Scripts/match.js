@@ -17,8 +17,8 @@ window.onload = function(){
             //get Active Match
             getRequest("/lol/spectator/v3/active-games/by-summoner/" + id, (response) => {
                 match = new Match(response);
-                team100 = 0;
-                team200 = 0;
+                let team100 = 0;
+                let team200 = 0;
                 //champSplash
                 for(participant of response.participants){
                     champName = getNameFromId(participant.championId, championJson);
@@ -34,8 +34,8 @@ window.onload = function(){
                 }
                 //perks
                 getDragonRequest(`/cdn/${version}/data/en_US/runesReforged.json`, (runesReforged) => {
-                    team100 = 0;
-                    team200 = 0;
+                    let team100 = 0;
+                    let team200 = 0;
                     for(participant of response.participants){
                         runeIcon = getRuneFromId(participant.perks.perkStyle, participant.perks.perkIds[0], runesReforged);
                         let subRuneCat;
@@ -83,22 +83,27 @@ window.onload = function(){
                 //Summoners
                 for(participant of response.participants){
                     let localParticipant = participant;
-                    getRequest(`/lol/summoner/v3/summoners/by-name/${localParticipant.summonerName}`, (accountData) =>{
+                    let currentVal = summonerteam100;
+                    if(localParticipant.teamId === 200){
+                        currentVal = summonerteam200;
+                        summonerteam200++;
+                    }else{
+                        summonerteam100++;
+                    }
+                    getRequest(`/lol/summoner/v3/summoners/by-name/${localParticipant.summonerName}`, (accountData, currentTeamId) =>{
                         let level = getLevel(accountData.summonerLevel);
                         if(localParticipant.teamId === 100){
-                            this.document.getElementById(`summoner100-${summonerteam100}`).setAttribute("src", `/Images/Icon/${level}.png`);
-                            this.document.getElementById(`level100-${summonerteam100}`).innerText = padLeft(accountData.summonerLevel, 3, ' ');
-                            this.document.getElementById(`summonerName100-${summonerteam100}`).innerText = localParticipant.summonerName;
-                            this.document.getElementById(`summonerIcon100-${summonerteam100}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${localParticipant.profileIconId}.png`);
-                            summonerteam100++;
+                            this.document.getElementById(`summoner100-${currentTeamId}`).setAttribute("src", `/Images/Icon/${level}.png`);
+                            this.document.getElementById(`level100-${currentTeamId}`).innerText = padLeft(accountData.summonerLevel, 3, ' ');
+                            this.document.getElementById(`summonerName100-${currentTeamId}`).innerText = localParticipant.summonerName;
+                            this.document.getElementById(`summonerIcon100-${currentTeamId}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${localParticipant.profileIconId}.png`);
                         }else{
-                            this.document.getElementById(`summoner200-${summonerteam200}`).setAttribute("src", `/Images/Icon/${level}.png`);
-                            this.document.getElementById(`level200-${summonerteam200}`).innerText = padLeft(accountData.summonerLevel, 3, ' ');
-                            this.document.getElementById(`summonerName200-${summonerteam200}`).innerText = localParticipant.summonerName;
-                            this.document.getElementById(`summonerIcon200-${summonerteam200}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${localParticipant.profileIconId}.png`);
-                            summonerteam200++;
+                            this.document.getElementById(`summoner200-${currentTeamId}`).setAttribute("src", `/Images/Icon/${level}.png`);
+                            this.document.getElementById(`level200-${currentTeamId}`).innerText = padLeft(accountData.summonerLevel, 3, ' ');
+                            this.document.getElementById(`summonerName200-${currentTeamId}`).innerText = localParticipant.summonerName;
+                            this.document.getElementById(`summonerIcon200-${currentTeamId}`).setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${localParticipant.profileIconId}.png`);
                         }
-                    });
+                    }, currentVal);
                 }
             });
         });
