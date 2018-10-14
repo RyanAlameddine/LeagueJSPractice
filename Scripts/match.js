@@ -8,6 +8,13 @@ class Match{
 }
 
 window.onload = function(){
+
+    var str = (() => {/* Thad isn't this just so beautiful.
+Like this string is the greatest string that isnt a string.
+Why is javascript such a weird language?*/}).toString().slice(14, -3);
+      this.alert(str);
+
+
     id = getParamFromUrl('id');
     //get version
     getDragonRequest("/api/versions.json", (versions) => {
